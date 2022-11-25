@@ -17,17 +17,17 @@ import text.formic.Stringf;
 /**
  @author antz
  @version 1.0.0
+ See https://github.com/antzGames/libGDX-cameraShake for more information.
 */
 
 public class CameraShake extends ApplicationAdapter {
 
 	private SpriteBatch batch;
 	private Texture image;
+	private Music explosion;
 	private BitmapFont font;
-
 	private OrthographicCamera camera;
 	private CameraShaker cameraShaker;
-	private Music explosion;
 
 	private float shakeRadius, minimumShakeRadius, radiusFallOffFactor;
 
@@ -35,9 +35,9 @@ public class CameraShake extends ApplicationAdapter {
 	public void create() {
 		batch = new SpriteBatch();
 		image = new Texture("libgdx.png");
+		explosion = Gdx.audio.newMusic(Gdx.files.internal("explosion.mp3"));
 		font = new BitmapFont();
 		camera = new OrthographicCamera();
-		explosion = Gdx.audio.newMusic(Gdx.files.internal("explosion.mp3"));
 
 		// Camera Shaker setup - set to default values
 		shakeRadius = 30f;				// must be positive
@@ -81,7 +81,7 @@ public class CameraShake extends ApplicationAdapter {
 	}
 
 	private void checkUserInput() {
-		// check for mouse click to start a camera shake
+		// check for mouse click or touched screen to start a camera shake
 		if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) || Gdx.input.isTouched()) {
 			if (!cameraShaker.isCameraShaking() && !explosion.isPlaying()) {
 				cameraShaker.startShaking();
@@ -125,5 +125,6 @@ public class CameraShake extends ApplicationAdapter {
 		batch.dispose();
 		image.dispose();
 		font.dispose();
+		explosion.dispose();
 	}
 }

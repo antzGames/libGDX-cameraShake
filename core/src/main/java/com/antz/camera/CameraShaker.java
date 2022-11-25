@@ -7,9 +7,10 @@ import com.badlogic.gdx.math.Vector3;
 /**
     @author antz
     @version 1.0.0
+    See https://github.com/antzGames/libGDX-cameraShake for more information.
 
-    Loosely based on Mastering LibGDX Game Development - Chapter 9 - Camera Shake
-    @site https://www.amazon.com/Mastering-LibGDX-Game-Development-Patrick/dp/1785289365
+    Loosely based on 'Mastering LibGDX Game Development' - Chapter 9 - Camera Shake
+    Book: https://www.amazon.com/Mastering-LibGDX-Game-Development-Patrick/dp/1785289365
 
     Changes:
         - All variables now use Vector3
@@ -19,7 +20,7 @@ import com.badlogic.gdx.math.Vector3;
         - You need to pass the camera in constructor, instead of position.x/y
         - added update() method for updating camera position
         - only compute new shake camera position every 1/60th of a second
-          to accommodate fast refresh rates.
+          at most to accommodate fast refresh rates.
         - added resetAndReconfigure(...) method to allow parameter changes
         - renamed variables so to not look like python
   */

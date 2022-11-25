@@ -2,7 +2,7 @@
 
 This is a simple configurable camera shaker for [libGDX](https://libgdx.com/).  Has been tested on Desktop, GWT/HTML, and Android.
 
-To use this camera shaker in your project all you need to do is copy the [CameraShaker.java](https://github.com/antzGames/libGDX-cameraShake/blob/master/core/src/main/java/com/antz/camera/CameraShaker.java) class into your project.
+To use this camera shaker in your project, all you need to do is copy the [CameraShaker.java](https://github.com/antzGames/libGDX-cameraShake/blob/master/core/src/main/java/com/antz/camera/CameraShaker.java) class into your core project.
 
 It is that simple.
 
@@ -43,7 +43,7 @@ In your main render/update loop of your game you need to call update() method on
 ```
 // Call camera shaker update method
 batch.setProjectionMatrix(camera.combined);
-cameraShaker.update();
+cameraShaker.update(deltaTime);
 ```
 
 ### Look at demo source code if you still need help
