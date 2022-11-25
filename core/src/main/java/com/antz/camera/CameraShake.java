@@ -4,6 +4,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -26,6 +27,7 @@ public class CameraShake extends ApplicationAdapter {
 
 	private OrthographicCamera camera;
 	private CameraShaker cameraShaker;
+	private Music explosion;
 
 	private float shakeRadius, minimumShakeRadius, radiusFallOffFactor;
 
@@ -35,6 +37,7 @@ public class CameraShake extends ApplicationAdapter {
 		image = new Texture("libgdx.png");
 		font = new BitmapFont();
 		camera = new OrthographicCamera();
+		explosion = Gdx.audio.newMusic(Gdx.files.internal("explosion.mp3"));
 
 		// Camera Shaker setup - set to default values
 		shakeRadius = 30f;				// must be positive
@@ -79,22 +82,33 @@ public class CameraShake extends ApplicationAdapter {
 
 	private void checkUserInput() {
 		// check for mouse click to start a camera shake
-		if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) || Gdx.input.isTouched()) cameraShaker.startShaking();
+		if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) || Gdx.input.isTouched()) {
+			if (!cameraShaker.isCameraShaking() && !explosion.isPlaying()) {
+				cameraShaker.startShaking();
+				explosion.play();
+			}
+		}
 
 		// check if user wants to randomize parameters and start shake
 		if (Gdx.input.isKeyJustPressed(Input.Keys.R)){
-			shakeRadius = MathUtils.random(10,40);
-			minimumShakeRadius = shakeRadius/15f;
-			if (minimumShakeRadius < 1f) minimumShakeRadius = 1f;
-			radiusFallOffFactor = MathUtils.random(0.8f, 0.96f);
-			cameraShaker.resetAndReconfigure(shakeRadius, minimumShakeRadius,radiusFallOffFactor);
-			cameraShaker.startShaking();
+			if (!cameraShaker.isCameraShaking() && !explosion.isPlaying()) {
+				shakeRadius = MathUtils.random(10, 40);
+				minimumShakeRadius = shakeRadius / 15f;
+				if (minimumShakeRadius < 1f) minimumShakeRadius = 1f;
+				radiusFallOffFactor = MathUtils.random(0.8f, 0.96f);
+				cameraShaker.resetAndReconfigure(shakeRadius, minimumShakeRadius, radiusFallOffFactor);
+				cameraShaker.startShaking();
+				explosion.play();
+			}
 		} else if (Gdx.input.isKeyJustPressed(Input.Keys.D)){ // set back to default parameters
-			shakeRadius = 30f;
-			minimumShakeRadius = 2f;
-			radiusFallOffFactor = 0.90f;
-			cameraShaker.resetAndReconfigure(shakeRadius, minimumShakeRadius,radiusFallOffFactor);
-			cameraShaker.startShaking();
+			if (!cameraShaker.isCameraShaking() && !explosion.isPlaying()) {
+				shakeRadius = 30f;
+				minimumShakeRadius = 2f;
+				radiusFallOffFactor = 0.90f;
+				cameraShaker.resetAndReconfigure(shakeRadius, minimumShakeRadius, radiusFallOffFactor);
+				cameraShaker.startShaking();
+				explosion.play();
+			}
 		}
 	}
 
