@@ -3,7 +3,9 @@
 This is a simple configurable camera shaker for [libGDX](https://libgdx.com/).  Has been tested on Desktop, GWT/HTML, and Android.
 A runnable demo is included.
 
-To use this camera shaker in your project all you need to do is copy the [CameraShaker.java](https://github.com/antzGames/libGDX-cameraShake/blob/master/core/src/main/java/com/antz/camera/CameraShaker.java) class in your project. It is that simple.
+To use this camera shaker in your project all you need to do is copy the [CameraShaker.java](https://github.com/antzGames/libGDX-cameraShake/blob/master/core/src/main/java/com/antz/camera/CameraShaker.java) class in your project.
+
+It is that simple.
 
 ![alt text](https://github.com/antzGames/libGDX-cameraShake/blob/master/cameraShake.PNG "Configurable Camera Shake for libGDX")
 
