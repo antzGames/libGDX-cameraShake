@@ -96,4 +96,4 @@ The current code uses a linear diminishing radius for shaking. Future releases m
 
 ## TODOs
 
-Instead of generating random values for parameters, will have a GUI with sliders.
+Instead of generating random values for parameters, create a GUI with sliders for parameters.
