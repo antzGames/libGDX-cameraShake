@@ -34,7 +34,7 @@ public class CameraShake extends ApplicationAdapter {
 
 		// Camera Shaker setup - set to default values
 		shakeRadius = 30f;				// must be positive
-		minimumShakeRadius = 2f;		// must be positive and less than shakeRadius, aim for 10% of shake radius
+		minimumShakeRadius = 2f;		// must be positive and less than shakeRadius, aim for 5-10% of shake radius
 		radiusFallOffFactor = 0.90f;	// must be greater than 0 and less than 1
 
 		cameraShaker = new CameraShaker(camera, shakeRadius, minimumShakeRadius, radiusFallOffFactor);
