@@ -89,14 +89,7 @@ radiusFallOffFactor = 0.90f;
 
 ## Limitations
 
-Current length of time for the camera shakes is based on your current frame rate and the `radiusFallOffFactor` parameter.  
-
-This means that at high refresh rates the total camera shaking time is very fast.  You should set VSync to true if possible.
-
-My Android phone refresh rate is 120Hz, and so my camera shake duration is half of what it is on my desktop which is 60Hz refresh rate.
-
-The correct solution is to use deltaTime or to only shake once every 60th of a second.  This is a TODO for sure.
-
 ### Linear diminishing shake radius
 
 The current code uses a linear diminishing radius for shaking. Future releases might use libGDX's [interpolation](https://libgdx.com/wiki/math-utils/interpolation).
+

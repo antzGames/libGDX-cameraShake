@@ -18,6 +18,8 @@ import com.badlogic.gdx.math.Vector3;
         - added validation checks to parameters
         - You need to pass the camera in constructor, instead of position.x/y
         - added update() method for updating camera position
+        - only compute new shake camera position every 1/60th of a second
+          to accommodate fast refresh rates.
         - added resetAndReconfigure(...) method to allow parameter changes
         - renamed variables so to not look like python
   */
@@ -30,6 +32,7 @@ public class CameraShaker {
     private float radiusFallOffFactor;
     private float shakeRadius;
     private float randomAngle;
+    private float timer;
     private Vector3 offset;
     private Vector3 currentPosition;
     private Vector3 origPosition;
@@ -63,14 +66,19 @@ public class CameraShaker {
      *
      * Make sure batch.setProjectionMatrix(camera.combined) is set prior to call.
      */
-    public void update(){
+    public void update(float delta){
         if (!isCameraShaking()) return;
 
-        computeCameraOffset();
-        computeCurrentPosition();
-        diminishShake();
-        camera.position.set(currentPosition);
-        camera.update();
+        // only update camera shake 60 times a second
+        timer += delta;
+        if (timer >= 1f/60f) {
+            computeCameraOffset();
+            computeCurrentPosition();
+            diminishShake();
+            camera.position.set(currentPosition);
+            camera.update();
+            timer = 0;
+        }
     }
 
     /**
@@ -83,6 +91,7 @@ public class CameraShaker {
         isShaking = false;
         seedRandomAngle();
         currentPosition = origPosition.cpy();
+        timer = 0;
     }
 
     /**
@@ -97,6 +106,7 @@ public class CameraShaker {
         isShaking = false;
         seedRandomAngle();
         currentPosition = origPosition.cpy();
+        timer = 0;
     }
 
     /**

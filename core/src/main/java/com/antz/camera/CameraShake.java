@@ -13,7 +13,11 @@ import com.badlogic.gdx.math.MathUtils;
 
 import text.formic.Stringf;
 
-/** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
+/**
+ @author antz
+ @version 1.0.0
+*/
+
 public class CameraShake extends ApplicationAdapter {
 
 	private SpriteBatch batch;
@@ -53,7 +57,7 @@ public class CameraShake extends ApplicationAdapter {
 
 		// Call camera shaker update method
 		batch.setProjectionMatrix(camera.combined);
-		cameraShaker.update();
+		cameraShaker.update(Gdx.graphics.getDeltaTime());
 
 		// draw User Interface
 		drawUI();
@@ -79,9 +83,10 @@ public class CameraShake extends ApplicationAdapter {
 
 		// check if user wants to randomize parameters and start shake
 		if (Gdx.input.isKeyJustPressed(Input.Keys.R)){
-			shakeRadius = MathUtils.random(10,60);
+			shakeRadius = MathUtils.random(10,40);
 			minimumShakeRadius = shakeRadius/15f;
-			radiusFallOffFactor = MathUtils.random(0.8f, 0.95f);
+			if (minimumShakeRadius < 1f) minimumShakeRadius = 1f;
+			radiusFallOffFactor = MathUtils.random(0.8f, 0.96f);
 			cameraShaker.resetAndReconfigure(shakeRadius, minimumShakeRadius,radiusFallOffFactor);
 			cameraShaker.startShaking();
 		} else if (Gdx.input.isKeyJustPressed(Input.Keys.D)){ // set back to default parameters
