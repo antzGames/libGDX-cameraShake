@@ -4,7 +4,7 @@ This is a simple configurable camera shaker for [libGDX](https://libgdx.com/).  
 
 To use this camera shaker in your project, all you need to do is copy the [CameraShaker.java](https://github.com/antzGames/libGDX-cameraShake/blob/master/core/src/main/java/com/antz/camera/CameraShaker.java) class into your core project.
 
-It is that simple.
+It is that simple.  No dependencies or gradle configuration needed.
 
 A runnable demo is included. A screenshot is below.
 
