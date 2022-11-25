@@ -22,13 +22,29 @@ Too small a value and the shake happens to fast, and the closer you get to 1 the
 
 ## How to use
 
-```
-		OrthographicCamera camera = new OrthographicCamera();
+### Create CamerShaker instance
 
-		// Camera Shaker setup - set to default values
-		shakeRadius = 30f;				// must be positive
-		minimumShakeRadius = 2f;		// must be positive and less than shakeRadius, aim for 5%-10% of shake radius
-		radiusFallOffFactor = 0.90f;	// must be greater than 0 and less than 1
-
-		cameraShaker = new CameraShaker(camera, shakeRadius, minimumShakeRadius, radiusFallOffFactor);
 ```
+OrthographicCamera camera = new OrthographicCamera();
+
+// Camera Shaker setup - set to default values
+shakeRadius = 30f;				// must be positive
+minimumShakeRadius = 2f;		// must be positive and less than shakeRadius, aim for 5%-10% of shake radius
+radiusFallOffFactor = 0.90f;	// must be greater than 0 and less than 1
+
+cameraShaker = new CameraShaker(camera, shakeRadius, minimumShakeRadius, radiusFallOffFactor);
+```
+
+### Start a camera shake
+
+After a player was hit, an explosion, impact or collision is the best time to shake the camera (and play a cool sound!).
+To start the camera shaking call the `startShaking()` method on the **_cameraShaker_** object:
+
+```
+// start a camera shake
+cameraShaker.startShaking();
+```
+
+### Update the CameraShaker
+
+In your main render/update loop of your game you need to call 
