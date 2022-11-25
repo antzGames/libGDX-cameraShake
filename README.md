@@ -94,6 +94,6 @@ radiusFallOffFactor = 0.90f;
 
 The current code uses a linear diminishing radius for shaking. Future releases might use libGDX's [interpolation](https://libgdx.com/wiki/math-utils/interpolation).
 
-## TODOs
+## TODOs for demo
 
-Instead of generating random values for parameters, create a GUI with sliders for parameters.
+Instead of generating random values for parameters in the demo, create a GUI with sliders for parameters.
