@@ -70,7 +70,7 @@ public class CameraShaker {
     public void update(float delta){
         if (!isCameraShaking()) return;
 
-        // only update camera shake 60 times a second
+        // only update camera shake 60 times a second max
         timer += delta;
         if (timer >= 1f/60f) {
             computeCameraOffset();
@@ -156,7 +156,7 @@ public class CameraShaker {
         if (shakeRadius <= 0) shakeRadius = 30f;                        // shake radius must be greater than 0
         if (minimumShakeRadius < 0) minimumShakeRadius = 0;             // minimum shake radius must be greater than 0
         if (minimumShakeRadius >= shakeRadius)                          // minimum shake radius must be less than shake radius, if not
-            minimumShakeRadius = 0.1f * shakeRadius;                    // then set minimum shake radius to 10% of shake radius
+            minimumShakeRadius = 0.15f * shakeRadius;                    // then set minimum shake radius to 10% of shake radius
 
         this.shakeRadius = shakeRadius;
         this.origShakeRadius = shakeRadius;

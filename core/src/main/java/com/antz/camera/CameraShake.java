@@ -93,7 +93,7 @@ public class CameraShake extends ApplicationAdapter {
 		if (Gdx.input.isKeyJustPressed(Input.Keys.R)){
 			if (!cameraShaker.isCameraShaking() && !explosion.isPlaying()) {
 				shakeRadius = MathUtils.random(10, 40);
-				minimumShakeRadius = shakeRadius / 15f;
+				minimumShakeRadius = shakeRadius / 10f;
 				if (minimumShakeRadius < 1f) minimumShakeRadius = 1f;
 				radiusFallOffFactor = MathUtils.random(0.8f, 0.96f);
 				cameraShaker.resetAndReconfigure(shakeRadius, minimumShakeRadius, radiusFallOffFactor);
