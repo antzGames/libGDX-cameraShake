@@ -14,8 +14,8 @@ It is that simple.
 ### Create a CameraShaker instance
 
 ```
-OrthographicCamera camera = new OrthographicCamera();
-SpriteBatch batch = new SpriteBatch();
+camera = new OrthographicCamera();
+batch = new SpriteBatch();
 
 // Camera Shaker setup - set to default values
 shakeRadius = 30f;
@@ -44,6 +44,12 @@ In your main render/update loop of your game you need to call update() method on
 batch.setProjectionMatrix(camera.combined);
 cameraShaker.update();
 ```
+
+### Look at demo source code if you still need help
+
+If you still cannot get the camera shaker to work then look at the demo source code.
+
+The demo source code is very simple, you can see it [here](https://github.com/antzGames/libGDX-cameraShake/blob/master/core/src/main/java/com/antz/camera/CameraShake.java).
 
 ## Configurable parameters
 
@@ -83,7 +89,7 @@ radiusFallOffFactor = 0.90f;
 
 ## Limitations
 
-Current length of time for the camera shake is based on your current frame rate and the `radiusFallOffFactor` parameter.  
+Current length of time for the camera shakes is based on your current frame rate and the `radiusFallOffFactor` parameter.  
 
 This means that at high refresh rates the total camera shaking time is very fast.  You should set VSync to true if possible.
 
