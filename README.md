@@ -14,7 +14,7 @@ A runnable demo is included. A screenshot is below.
 
 ### Create a CameraShaker instance
 
-```
+```java
 camera = new OrthographicCamera();
 batch = new SpriteBatch();
 
@@ -31,7 +31,7 @@ cameraShaker = new CameraShaker(camera, shakeRadius, minimumShakeRadius, radiusF
 After a player was hit, explosion, impact or collision is the best time to shake the camera (and play a cool sound!).
 To start the camera shaking call the `startShaking()` method on the `cameraShaker` object:
 
-```
+```java
 // start a camera shake
 cameraShaker.startShaking();
 ```
@@ -40,7 +40,7 @@ cameraShaker.startShaking();
 
 In your main render/update loop of your game you need to call update() method on the `cameraShaker` object:
 
-```
+```java
 // Call camera shaker update method
 batch.setProjectionMatrix(camera.combined);
 cameraShaker.update(deltaTime);
@@ -82,7 +82,7 @@ On desktop and HTML you can hit the `R` key to randomize the 3 parameters.
 
 On desktop and HTML you can hit the `D` key to return to the default parameters.  Here are the default parameters:
 
-```
+```java
 shakeRadius = 30f;
 minimumShakeRadius = 2f;
 radiusFallOffFactor = 0.90f;
