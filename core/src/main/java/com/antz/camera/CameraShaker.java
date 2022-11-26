@@ -157,7 +157,7 @@ public class CameraShaker {
         if (shakeRadius <= 0) shakeRadius = 30f;                        // shake radius must be greater than 0
         if (minimumShakeRadius < 0) minimumShakeRadius = 0;             // minimum shake radius must be greater than 0
         if (minimumShakeRadius >= shakeRadius)                          // minimum shake radius must be less than shake radius, if not
-            minimumShakeRadius = 0.15f * shakeRadius;                   // then set minimum shake radius to 10% of shake radius
+            minimumShakeRadius = 0.15f * shakeRadius;                   // then set minimum shake radius to 15% of shake radius
 
         this.shakeRadius = shakeRadius;
         this.origShakeRadius = shakeRadius;
