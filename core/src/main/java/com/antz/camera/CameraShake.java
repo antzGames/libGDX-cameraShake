@@ -69,9 +69,12 @@ public class CameraShake extends ApplicationAdapter {
 	private void drawUI(){
 		batch.begin();
 		batch.draw(image, -image.getWidth()/2f, -image.getHeight()/2f);
-		font.draw(batch, "Click to re-shake!", -45f,-70f);
-		font.draw(batch, Stringf.format("Shake Radius: %.1f",shakeRadius) + Stringf.format("   minShakeRadius: %.1f", minimumShakeRadius) + Stringf.format("   fallOffFactor: %.2f",radiusFallOffFactor), -195f,+90f);
 
+		font.getData().setScale(2f);
+		font.draw(batch, "Click to re-shake!", -100f,-70f);
+		font.getData().setScale(1f);
+
+		font.draw(batch, Stringf.format("Shake Radius: %.1f",shakeRadius) + Stringf.format("   minShakeRadius: %.1f", minimumShakeRadius) + Stringf.format("   fallOffFactor: %.2f",radiusFallOffFactor), -205f,+90f);
 		// Only show if desktop or html
 		if (!(Gdx.app.getType().equals(Application.ApplicationType.iOS) || Gdx.app.getType().equals(Application.ApplicationType.Android))) {
 			font.draw(batch, "Press R to randomize parameters", -98, 165);
