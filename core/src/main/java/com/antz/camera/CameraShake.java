@@ -15,9 +15,15 @@ import com.badlogic.gdx.math.MathUtils;
 import text.formic.Stringf;
 
 /**
- @author antz
- @version 1.0.0
- See https://github.com/antzGames/libGDX-cameraShake for more information.
+	 @author antz
+	 @version 1.0.0
+	 November 2022
+	 See https://github.com/antzGames/libGDX-cameraShake for more information.
+
+ 	libGDX Camera Shake Demo
+ 	- tested on Desktop, HTML, and physical android devices
+
+ 	You can play with this demo on itch.io: https://antzgames.itch.io/camera-shaker-demo
 */
 
 public class CameraShake extends ApplicationAdapter {
@@ -71,7 +77,7 @@ public class CameraShake extends ApplicationAdapter {
 		batch.draw(image, -image.getWidth()/2f, -image.getHeight()/2f);
 
 		font.getData().setScale(2f);
-		font.draw(batch, "Click to re-shake!", -100f,-70f);
+		font.draw(batch, "Click to re-shake!", -105f,-70f);
 		font.getData().setScale(1f);
 
 		font.draw(batch, Stringf.format("Shake Radius: %.1f",shakeRadius) + Stringf.format("   minShakeRadius: %.1f", minimumShakeRadius) + Stringf.format("   fallOffFactor: %.2f",radiusFallOffFactor), -205f,+90f);

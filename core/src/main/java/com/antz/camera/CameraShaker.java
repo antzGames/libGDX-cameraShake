@@ -7,20 +7,21 @@ import com.badlogic.gdx.math.Vector3;
 /**
     @author antz
     @version 1.0.0
+    November 2022
     See https://github.com/antzGames/libGDX-cameraShake for more information.
 
     Loosely based on 'Mastering LibGDX Game Development' - Chapter 9 - Camera Shake
     Book: https://www.amazon.com/Mastering-LibGDX-Game-Development-Patrick/dp/1785289365
 
-    Changes:
-        - All variables now use Vector3
+    Changes/Enhancements:
+        - All variables now use Vector3 (for eventual 3-axis camera shaking)
         - Minimum shake radius is now configurable
         - Radius fall off factor (was hard coded to 0.9f) is now configurable
         - added validation checks to parameters
         - You need to pass the camera in constructor, instead of position.x/y
         - added update() method for updating camera position
         - only compute new shake camera position every 1/60th of a second
-          at most to accommodate fast refresh rates.
+          at most to accommodate fast refresh rates (to save GPU cycles)
         - added resetAndReconfigure(...) method to allow parameter changes
         - renamed variables so to not look like python
   */
@@ -156,7 +157,7 @@ public class CameraShaker {
         if (shakeRadius <= 0) shakeRadius = 30f;                        // shake radius must be greater than 0
         if (minimumShakeRadius < 0) minimumShakeRadius = 0;             // minimum shake radius must be greater than 0
         if (minimumShakeRadius >= shakeRadius)                          // minimum shake radius must be less than shake radius, if not
-            minimumShakeRadius = 0.15f * shakeRadius;                    // then set minimum shake radius to 10% of shake radius
+            minimumShakeRadius = 0.15f * shakeRadius;                   // then set minimum shake radius to 10% of shake radius
 
         this.shakeRadius = shakeRadius;
         this.origShakeRadius = shakeRadius;
