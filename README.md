@@ -26,6 +26,15 @@ radiusFallOffFactor = 0.90f;
 cameraShaker = new CameraShaker(camera, shakeRadius, minimumShakeRadius, radiusFallOffFactor);
 ```
 
+Here is an example if you are using a viewport:
+
+```java
+viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+// Camera Shaker setup
+cameraShaker = new CameraShaker(viewport.getCamera(), shakeRadius, minimumShakeRadius, radiusFallOffFactor);
+```
+
 ### Start a camera shake
 
 After a player was hit, explosion, impact or collision is the best time to shake the camera (and play a cool sound!).
