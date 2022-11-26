@@ -18,9 +18,9 @@ A runnable demo is included and can be accessed on itch.io: https://antzgames.it
 camera = new OrthographicCamera();
 batch = new SpriteBatch();
 
-// Camera Shaker setup - set to default values
+// Camera Shaker setup with default values
 shakeRadius = 30f;
-minimumShakeRadius = 2f;
+minimumShakeRadius = 3f;
 radiusFallOffFactor = 0.90f;
 
 cameraShaker = new CameraShaker(camera, shakeRadius, minimumShakeRadius, radiusFallOffFactor);
@@ -42,7 +42,7 @@ In your main render/update loop of your game you need to call update() method on
 
 ```java
 // Call camera shaker update method
-batch.setProjectionMatrix(camera.combined);
+batch.setProjectionMatrix(camera.combined);  // not needed if not using a SpriteBatch
 cameraShaker.update(deltaTime);
 ```
 
@@ -70,30 +70,30 @@ Too small a value and the shake happens to fast, and the closer you get to 1 the
 
 ## How to use the demo
 
-### Click to see current parameters camera shake
+### CLICK ME TO RE-SHAKE button
 
-Clicking (or touching) anywhere on the screen will re-shake the camera with the currently displayed configuration parameters.
+Clicking this button will re-shake the camera with the currently displayed configuration parameters.
 
-### Randomize Parameters (Desktop/HTML only)
+### Randomize Parameters button
 
-On desktop and HTML you can hit the `R` key to randomize the 3 parameters.
+Click this button to randomize the 3 parameters and re-shake.
 
-### Return to Default parameters (Desktop/HTML only)
+### Default parameters button 
 
-On desktop and HTML you can hit the `D` key to return to the default parameters.  Here are the default parameters:
+Click this button to return to the default parameters.  Here are the default parameters:
 
 ```java
 shakeRadius = 30f;
-minimumShakeRadius = 2f;
+minimumShakeRadius = 3f;
 radiusFallOffFactor = 0.90f;
 ```
+
+### Turn On/Off Sound
+
+Sound can be toggled on/off with the this button.
 
 ## Limitations
 
 ### Linear diminishing shake radius
 
 The current code uses a linear diminishing radius for shaking. Future releases might use libGDX's [interpolation](https://libgdx.com/wiki/math-utils/interpolation).
-
-## TODOs for demo
-
-Instead of generating random values for parameters in the demo, create a GUI with sliders for parameters.
