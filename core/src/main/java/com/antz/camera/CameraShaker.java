@@ -41,12 +41,37 @@ public class CameraShaker {
     private Camera camera;
 
     /**
+     * Constructor
+     *
      * @param camera                supports any camera implementation
      * @param shakeRadius           original was set to 30.0f, must be greater than 0
      * @param minimumShakeRadius    original was set to 2.0f, must be greater than 0 and less than shakeRadius
      * @param radiusFallOffFactor   original was set to 0.9f, must be greater than 0 and less than 1
      */
     public CameraShaker(Camera camera, float shakeRadius, float minimumShakeRadius, float radiusFallOffFactor){
+        checkParameters(shakeRadius, minimumShakeRadius, radiusFallOffFactor);
+        this.camera = camera;
+        this.offset = new Vector3();
+        this.currentPosition = new Vector3();
+        this.origPosition = camera.position.cpy();
+        reset();
+    }
+
+    /**
+     * Constructor - simple version
+     *
+     * Use this constructor to create a camera shaker with default values
+     *
+     * shakeRadius = 30f;			// must be positive
+     * minimumShakeRadius = 3f;		// must be positive and less than shakeRadius, aim for 5-15% of shake radius
+     * radiusFallOffFactor = 0.90f;	// must be greater than 0 and less than 1
+     *
+     * @param camera supports any camera implementation
+     */
+    public CameraShaker(Camera camera){
+        shakeRadius = 30f;
+        minimumShakeRadius = 3f;
+        radiusFallOffFactor = 0.90f;
         checkParameters(shakeRadius, minimumShakeRadius, radiusFallOffFactor);
         this.camera = camera;
         this.offset = new Vector3();
