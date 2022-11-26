@@ -77,7 +77,7 @@ public class CameraShake extends ApplicationAdapter {
 		batch.draw(image, -image.getWidth()/2f, -image.getHeight()/2f);
 
 		font.getData().setScale(2f);
-		font.draw(batch, "Click to re-shake!", -105f,-70f);
+		font.draw(batch, "Click to re-shake!", -110f,-70f);
 		font.getData().setScale(1f);
 
 		font.draw(batch, Stringf.format("Shake Radius: %.1f",shakeRadius) + Stringf.format("   minShakeRadius: %.1f", minimumShakeRadius) + Stringf.format("   fallOffFactor: %.2f",radiusFallOffFactor), -205f,+90f);
