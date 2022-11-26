@@ -6,7 +6,7 @@ To use this camera shaker in your project, all you need to do is copy the [Camer
 
 It is that simple.  No dependencies or gradle configuration needed.
 
-A runnable demo is included. A screenshot is below.
+A runnable demo is included and can be accessed on itch.io: https://antzgames.itch.io/camera-shaker-demo
 
 ![alt text](https://github.com/antzGames/libGDX-cameraShake/blob/master/cameraShake.PNG "Configurable Camera Shake for libGDX")
 
