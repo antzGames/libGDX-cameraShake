@@ -65,7 +65,7 @@ Determining the best value depends on your screen size and resolution.
 
 ### radiusFallOffFactor
 
-`radiusFallOffFactor` value determines the speed in which the shaking diminishes.  The value should be greater than 0 and less than 1, however the optimal ranges are between `0.8f` and `0.95f`.  
+`radiusFallOffFactor` value determines the speed in which the shaking radius diminishes.  The value should be greater than 0 and less than 1, however the optimal ranges are between `0.8f` and `0.95f`.  
 Too small a value and the shake happens to fast, and the closer you get to 1 the longer the shake persists.  
 
 ## How to use the demo
