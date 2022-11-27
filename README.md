@@ -1,7 +1,7 @@
 # Configurable Camera Shake for libGDX
 
 This is a simple configurable camera shaker for [libGDX](https://libgdx.com/).  
-It is best used for a stationary camera, but with a bit of extra coding you can support a moving camera.   
+It is best used for shaking a stationary camera, but with a bit of extra coding you can support a moving camera.   
 Has been tested on Desktop, GWT/HTML, and Android.
 
 To use this camera shaker in your project, all you need to do is copy the [CameraShaker.java](https://github.com/antzGames/libGDX-cameraShake/blob/master/core/src/main/java/com/antz/camera/CameraShaker.java) class into your core project.
@@ -108,3 +108,12 @@ Sound can be toggled on/off with the this button.
 ### Linear diminishing shake radius
 
 The current code uses a linear diminishing radius for shaking. Future releases might use libGDX's [interpolation](https://libgdx.com/wiki/math-utils/interpolation).
+
+### Moving camera
+
+The current implementation camera shaking assumes a stationary camera with a fixed origin.  The shaking uses the origin to randomly move around it, and to put it the camera back in its original position once the shaking stops.
+
+With a moving camera (like the camera following a player around a map) you will need to constantly update the `origPosition` variable with the true camera position (minus any shaking).  The `origPosition` variable is public in the `CamerShaker` class so you can update it.
+
+Most games utilize custom camera controllers, so it is best that you modify the class to suit your implementation.
+
